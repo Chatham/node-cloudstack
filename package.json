@@ -1,0 +1,15 @@
+{
+    "private"         : "true"
+  , "name"            : "node-cloudstack"
+  , "version"         : "0.1.0"
+  , "author"          : "Chatham <oss@chathamfinancial.com>"
+  , "description"     : "An API wrapper for CloudStack."
+  , "contributors"    : [{ "name": "Chris Hoffman", "email": "choffman@chathamfinancial.com" },
+                         { "name": "Tim Savery"   , "email": "tsavery@chathamfinancial.com"  }]
+  , "scripts"         : { "test": "vows" }
+  , "keywords"        : [ "cloudstack", "api", "cloud" ]
+  , "dependencies"    : { "request": "2.1.x" }
+  , "devDependencies" : { "vows": "0.6.x" }
+  , "license"         : "MIT"
+  , "main"            : "./lib/cloudstack"
+}
