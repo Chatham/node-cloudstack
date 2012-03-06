@@ -1,23 +1,12 @@
 var vows = require('vows')
   , assert = require('assert')
-  , Client = require('../lib/client')
-  , nock = require('nock');
-  
-// mock the upcoming request
-nock('192.168.22.227')
-  .get('/client/api?account=self_provision&apiKey=ffMgLTrJ7DrINZvFRNSAcOrPN8hFlQ9o9_RyW-96NY1-zoY0RgcZ4Kkb5LRFdimLXcviNAsSZIIb8kZ878pMZw&command=listVirtualMachines&domainId=1&response=json&signature=4OVPoc41dm3%2BMXnMucjL9wDJszE%3D')
-  .reply(200, "{ \"listvirtualmachinesresponse\" : { } }", { 
-  	server: 'Apache-Coyote/1.1',
-    'content-type': 'text/javascript;charset=UTF-8',
-    'content-length': '39',
-    date: 'Mon, 20 Feb 2012 01:12:18 GMT' 
-  });
+  , client = require('../lib/client');
   
 vows.describe('Client Tests').addBatch({
 	'when client is constructed': {
 		'with a null options object': {
 			topic: function() {
-				return new Client({});
+				return new client({});
 			},
 			'the host property defaults to localhost': function(topic) {
 				assert.equal(topic.host, '127.0.0.1');
@@ -37,7 +26,7 @@ vows.describe('Client Tests').addBatch({
 		},
 		'with a complete options object': {
 			topic: function() {
-				return new Client({
+				return new client({
 					host: 'cloudhost',
 					port: 8081,
 					account: 'cloud_account',
@@ -67,12 +56,12 @@ vows.describe('Client Tests').addBatch({
 		'and no machines are running': {
 			'the result': {
 				topic: function() {
-					new Client({
-						host: '192.168.22.227',
-						port: 8080,
-						account: 'self_provision',
-						apiKey: 'ffMgLTrJ7DrINZvFRNSAcOrPN8hFlQ9o9_RyW-96NY1-zoY0RgcZ4Kkb5LRFdimLXcviNAsSZIIb8kZ878pMZw',
-						apiSecret: '2BKpg7t0yPJ_pB4Y08OAOIGlCpaCLYaMHSPqEBKqFZQxDUoA5ozsQKRkGaLeH0f0VOcgZEseBY6HCHP-hfbArg'
+					new client({
+						host: '127.0.0.1',
+						port: 54321,
+						account: 'TestUser',
+						apiKey: 'TestUserApiKey',
+						apiSecret: 'TestUserApiSecret'
 					}).listVirtualMachines(this.callback);
 				},
 				'has a "status" property': function(topic) {
@@ -90,4 +79,4 @@ vows.describe('Client Tests').addBatch({
 			}
 		}
 	}
-}).export(module, { "error": false });
+}).export(module);
