@@ -9,7 +9,7 @@
   , "scripts"         : { "test": "vows" }
   , "keywords"        : [ "cloudstack", "api", "cloud" ]
   , "dependencies"    : { "request": "2.1.x" }
-  , "devDependencies" : { "vows": "0.6.x" }
+  , "devDependencies" : { "vows": "0.6.x", "nock": "0.10.5" }
   , "license"         : "MIT"
   , "main"            : "./lib/cloudstack"
 }

@@ -1,7 +1,15 @@
 var vows = require('vows')
   , assert = require('assert')
-  , client = require('../lib/client');
-  
+  , client = require('../lib/client')
+  , nock   = require('nock')
+  ;
+
+if(process.env.NOCK) {
+  nock("http://localhost")
+   .log(console.log) .get("/client/api?account=TestUser&apiKey=TestUserApiKey&command=listVirtualMachines&domainId=1&response=json&signature=acSwdq7p634LFmIvR3em%2FZzlKEE%3D")
+    .reply(200, {status: "ok", data: {"hey": "man"}}, {});
+}
+
 vows.describe('Client Tests').addBatch({
 	'when client is constructed': {
 		'with a null options object': {
@@ -57,8 +65,8 @@ vows.describe('Client Tests').addBatch({
 			'the result': {
 				topic: function() {
 					new client({
-						host: '127.0.0.1',
-						port: 54321,
+						host: 'localhost',
+//						port: 54321,
 						account: 'TestUser',
 						apiKey: 'TestUserApiKey',
 						apiSecret: 'TestUserApiSecret'
