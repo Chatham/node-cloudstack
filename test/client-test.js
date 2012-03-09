@@ -1,14 +1,7 @@
 var vows = require('vows')
   , assert = require('assert')
   , client = require('../lib/client')
-  , nock   = require('nock')
-  ;
-
-if(process.env.NOCK) {
-  nock("http://localhost")
-   .log(console.log) .get("/client/api?account=TestUser&apiKey=TestUserApiKey&command=listVirtualMachines&domainId=1&response=json&signature=acSwdq7p634LFmIvR3em%2FZzlKEE%3D")
-    .reply(200, {status: "ok", data: {"hey": "man"}}, {});
-}
+  , nock   = require('nock');
 
 vows.describe('Client Tests').addBatch({
 	'when client is constructed': {
@@ -36,26 +29,26 @@ vows.describe('Client Tests').addBatch({
 			topic: function() {
 				return new client({
 					host: 'cloudhost',
-					port: 8081,
-					account: 'cloud_account',
-					apiKey: 'api_key',
-					apiSecret: 'api_secret'
+					port: 54321,
+					account: 'TestUser',
+					apiKey: 'TestUserApiKey',
+					apiSecret: 'TestUserApiSecret'
 				});
 			},
 			'the host property is equal to the specified value': function(topic) {
 				assert.equal(topic.host, 'cloudhost');
 			},
 			'the port property is equal to the specified value': function(topic) {
-				assert.equal(topic.port, 8081);
+				assert.equal(topic.port, 54321);
 			},
 			'the account property is equal to the specified value': function(topic) {
-				assert.equal(topic.account, 'cloud_account');
+				assert.equal(topic.account, 'TestUser');
 			},
 			'the apiKey property is equal to the specified value': function(topic) {
-				assert.equal(topic.apiKey, 'api_key');
+				assert.equal(topic.apiKey, 'TestUserApiKey');
 			},
 			'the apiSecret property is equal to the specified value': function(topic) {
-				assert.equal(topic.apiSecret, 'api_secret');
+				assert.equal(topic.apiSecret, 'TestUserApiSecret');
 			}
 		}
 	},
@@ -64,9 +57,17 @@ vows.describe('Client Tests').addBatch({
 		'and no machines are running': {
 			'the result': {
 				topic: function() {
+					if(process.env.NOCK) {
+					 	nock("http://cloudhost:54321")   
+					  		.get("/client/api?account=TestUser&apiKey=TestUserApiKey&command=listVirtualMachines&domainId=1&response=json&signature=acSwdq7p634LFmIvR3em%2FZzlKEE%3D")
+					   		.reply(200, {
+					   			listvirtualmachinesresponse: {}
+					   		});
+					}
+
 					new client({
-						host: 'localhost',
-//						port: 54321,
+						host: 'cloudhost',
+						port: 54321,
 						account: 'TestUser',
 						apiKey: 'TestUserApiKey',
 						apiSecret: 'TestUserApiSecret'
@@ -87,4 +88,4 @@ vows.describe('Client Tests').addBatch({
 			}
 		}
 	}
-}).export(module);
+}).export(module, { error: false });
