@@ -1,20 +1,15 @@
-var vows = require('vows')
-  , assert = require('assert')  
-  , Client = require('../lib/client')
-  , CloudStack = require('../lib/cloudstack');
+var CloudstackClient = require('../lib/client');  
 
-vows.describe('CloudStack Object Tests').addBatch({
-	'When you call .createClient': {
-		topic: function() {
-			return CloudStack.createClient({
-				host: 'cloudhost'
-			});
-		},
-		'an object of type Client is returned': function(topic) {
-			assert.instanceOf(topic, Client);
-		},
-		'the options are passed to the constructor': function(topic) {
-			assert.equal(topic.host, 'cloudhost');
-		}
-	}
-}).export(module);
+exports['CreateClient'] = function(test) {
+	var client = (require('../lib/cloudstack')).createClient({
+		host: 'cloudhost'
+	});
+
+	test.equal(client.host, 'cloudhost');
+	test.equal(client.port, 8080);
+	test.equal(client.apiKey, '');
+	test.equal(client.apiSecret, '');
+	test.equal(client.account, '');
+	
+	test.done();
+};

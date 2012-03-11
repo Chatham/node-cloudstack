@@ -8,8 +8,9 @@
                          { "name": "Tim Savery"   , "email": "tsavery@chathamfinancial.com"  }]
   , "scripts"         : { "test": "vows" }
   , "keywords"        : [ "cloudstack", "api", "cloud" ]
-  , "dependencies"    : { "request": "2.1.x" }
-  , "devDependencies" : { "vows": "0.6.x", "nock": "0.10.x" }
+  , "dependencies"    : { "request": "2.2.x" }
+  , "devDependencies" : { "nodeunit": "0.7.x", "nock": "0.10.x" }
   , "license"         : "MIT"
   , "main"            : "./lib/cloudstack"
+  , "scripts"         : { "test": "NOCK=1 nodeunit test" }
 }
