@@ -1,0 +1,6 @@
+{
+	"host": "controller",						
+	"account": "TestUser",
+	"apiKey": "TestUserApiKey",
+	"apiSecret": "TestUserApiSecret"
+}

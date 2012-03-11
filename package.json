@@ -12,5 +12,5 @@
   , "devDependencies" : { "nodeunit": "0.7.x", "nock": "0.10.x" }
   , "license"         : "MIT"
   , "main"            : "./lib/cloudstack"
-  , "scripts"         : { "test": "NOCK=1 nodeunit test" }
+  , "scripts"         : { "test": "nodeunit test" }
 }
