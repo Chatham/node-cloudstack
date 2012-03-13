@@ -15,12 +15,6 @@ module.exports = function mocks() {
 				queryasyncjobresultresponse: {
 					jobstatus: 1
 				}
-			})
-			.get('/client/api?account=TestUser&apiKey=TestUserApiKey&command=listVirtualMachines&domainId=1&id=456&response=json&signature=DDmoVEvTZpyN10RQUh3pOz9zYjQ%3D')
-			.reply(200, {
-				listvirtualmachinesresponse: {
-					id: 456
-				}
 			});
 	};
 };
