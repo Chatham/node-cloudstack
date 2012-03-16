@@ -12,14 +12,14 @@ if (!process.env.LIVE) {
 var client = new client(args);
 
 exports['deployVirtualMachine'] = function(test) {
-	var deployment = client.deployVirtualMachine(211, 1, 1);
+	client.deployVirtualMachine(211, 1, 1, function(result) {
+		result.emitter.on('success', function() {
+			test.done();
+		});
 
-	deployment.emitter.on('success', function() {
-		test.done();
-	});
-
-	deployment.emitter.on('fail', function() {
-		test.fail();
-		test.done();
-	});
+		result.emitter.on('fail', function() {
+			test.fail();
+			test.done();
+		});
+	});	
 };
