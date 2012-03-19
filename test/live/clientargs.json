@@ -1,6 +1,6 @@
 {
-	"host": "192.168.22.227",
-	"account": "self_provision",
-	"apiKey": "ffMgLTrJ7DrINZvFRNSAcOrPN8hFlQ9o9_RyW-96NY1-zoY0RgcZ4Kkb5LRFdimLXcviNAsSZIIb8kZ878pMZw",
-	"apiSecret": "2BKpg7t0yPJ_pB4Y08OAOIGlCpaCLYaMHSPqEBKqFZQxDUoA5ozsQKRkGaLeH0f0VOcgZEseBY6HCHP-hfbArg"
+	"host": "XXX.XXX.XXX.XXX",
+	"account": "XXX",
+	"apiKey": "XXX",
+	"apiSecret": "XXX"
 }
