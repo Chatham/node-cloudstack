@@ -1,4 +1,4 @@
-{
+var config = {
 	"host": "xxx.xxx.xxx.xxx",
 	"account": "xxx",
 	"apiKey": "xxx",
@@ -6,3 +6,5 @@
 	"domainId": 1,
 	"response": "json"
 }
+
+module.exports = config;

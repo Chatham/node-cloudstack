@@ -1,8 +1,8 @@
 var client = require('../lib/cloudstackClient');
 
 var args = (process.env.LIVE)
-	? require('./live/clientargs.json')
-	: require('./nonlive/clientargs.json');
+	? require('./live/clientargs')
+	: require('./nonlive/clientargs');
 
 if (!process.env.LIVE) {	
 	var mocks = require('./nonlive/mocks');
