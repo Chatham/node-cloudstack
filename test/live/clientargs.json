@@ -1,6 +1,8 @@
 {
-	"host": "XXX.XXX.XXX.XXX",
-	"account": "XXX",
-	"apiKey": "XXX",
-	"apiSecret": "XXX"
+	"host": "xxx.xxx.xxx.xxx",
+	"account": "xxx",
+	"apiKey": "xxx",
+	"apiSecret": "xxx",
+	"domainId": 1,
+	"response": "json"
 }
