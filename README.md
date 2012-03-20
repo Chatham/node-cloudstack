@@ -2,6 +2,10 @@
 
 `node-cloudstack` is a CloudStack client implementation for Node.js.
 
+## Build Status
+
+[![Build Status](https://secure.travis-ci.org/Chatham/node-cloudstack.png?branch=master)](http://travis-ci.org/Chatham/node-cloudstack)
+
 ## Usage
 
 ```javascript
