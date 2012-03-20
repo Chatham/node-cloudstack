@@ -1,6 +1,5 @@
 {
-    "private"         : "true"
-  , "name"            : "node-cloudstack"
+    "name"            : "node-cloudstack"
   , "version"         : "0.1.0"
   , "author"          : "Chatham <oss@chathamfinancial.com>"
   , "description"     : "An API wrapper for CloudStack."
