@@ -10,7 +10,7 @@ module.exports = function mocks() {
 					id: 456
 				}
 			})
-			.get('/client/api?account=TestUser&apiKey=TestUserApiKey&command=queryAsyncJobResult&domainId=1&jobid=123&response=json&signature=mpgukeS%2FQWAX1vI8%2FhmFQY9NCsU%3D')
+			.get('/client/api?apiKey=TestUserApiKey&command=queryAsyncJobResult&jobid=123&response=json&signature=7%2BzLnDw0TvYezkZovSYda2AABxY%3D')
 			.reply(200, {
 				queryasyncjobresultresponse: {
 					jobstatus: 1

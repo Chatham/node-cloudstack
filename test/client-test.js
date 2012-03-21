@@ -12,7 +12,7 @@ if (!process.env.LIVE) {
 var client = new client(args);
 
 exports['deployVirtualMachine'] = function(test) {
-	client.deployVirtualMachine(211, 1, 1, {}, function(result) {
+	client.deployVirtualMachine(211, 1, 1, { domainId:1, account:"TestUser" }, function(result) {
 		result.emitter.on('success', function() {
 			test.done();
 		});
