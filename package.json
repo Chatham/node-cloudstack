@@ -1,6 +1,6 @@
 {
     "name"            : "cloudstack"
-  , "version"         : "0.1.0"
+  , "version"         : "0.1.1"
   , "author"          : "Chatham <oss@chathamfinancial.com>"
   , "repository"      : { "type": "git",
                           "url": "http://github.com/chatham/node-cloudstack.git" }
