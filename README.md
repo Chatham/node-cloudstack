@@ -9,7 +9,7 @@
 ## Usage
 
 ```javascript
-var cloudstack = require('node-cloudstack')
+var cloudstack = require('cloudstack')
   , templateId = 1
   , serviceOfferingId = 1
   , zoneId = 1;

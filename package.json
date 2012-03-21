@@ -1,7 +1,9 @@
 {
-    "name"            : "node-cloudstack"
+    "name"            : "cloudstack"
   , "version"         : "0.1.0"
   , "author"          : "Chatham <oss@chathamfinancial.com>"
+  , "repository"      : { "type": "git",
+                          "url": "http://github.com/chatham/node-cloudstack.git" }
   , "description"     : "An API wrapper for CloudStack."
   , "contributors"    : [{ "name": "Chris Hoffman", "email": "choffman@chathamfinancial.com" },
                          { "name": "Tim Savery"   , "email": "tsavery@chathamfinancial.com"  }]
@@ -12,4 +14,5 @@
   , "license"         : "MIT"
   , "main"            : "./lib/cloudstack"
   , "scripts"         : { "test": "nodeunit test" }
+  , "engines"         : { "node": ">= 0.4.0" }
 }
