@@ -1,6 +1,6 @@
-# node-cloudstack
+# cloudstack
 
-`node-cloudstack` is a CloudStack client implementation for Node.js.
+`cloudstack` is a minimalistic wrapper for the CloudStack API in Node.js.
 
 ## Build Status
 
@@ -9,21 +9,14 @@
 ## Usage
 
 ```javascript
-var cloudstack = require('cloudstack')
-  , templateId = 1
-  , serviceOfferingId = 1
-  , zoneId = 1;
+var cloudstack = new (require('./cloudstack'))({
+	apiUri: config.api_uri, // overrides process.env.CLOUDSTACK_API_URI
+	apiKey: config.api_key, // overrides process.env.CLOUDSTACK_API_KEY
+	apiSecret: config.api_secret // overrides process.env.CLOUDSTACK_API_SECRET
+});
 
-client.deployVirtualMachine(templateId, serviceOfferingId, zoneId, function(result) {
-	var virtualMachineId = result.vmid;
-
-	result.emitter.on('success', function() {
-		console.log('Machine deployed successfully and it is ready to use!');
-	});
-
-	result.emitter.on('fail', function() {
-		console.log('Machine failed to deploy.');
-	});
+cloudstack.exec('listVirtualMachines', {}, function(error, result) {
+	console.log(result);
 });
 ```
 
